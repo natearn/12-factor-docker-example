@@ -5,16 +5,13 @@ version: "3.8"
 services:
 
   website:
-    image: "node:latest" # https://hub.docker.com/_/node
-    # React app hosted on webpack dev server or similar
+    build: "services/website"
 
   api:
-    image: "node:latest" # https://hub.docker.com/_/node
-    # JSON REST API hosted on express or similar
+    build: "services/api"
 
   tests:
-    image: "node:latest" # https://hub.docker.com/_/node
-    # Cypress tests live here
+    build: "services/tests"
 
   mocks:
     image: "bbyars/mountebank:latest" #https://hub.docker.com/r/bbyars/mountebank

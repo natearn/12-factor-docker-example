@@ -5,12 +5,10 @@ verision: "3.8"
 services:
 
   website:
-    image: "node:latest" # https://hub.docker.com/_/node
-    # React app hosted on webpack dev server or similar
+    build: "services/website"
 
   api:
-    image: "node:latest" # https://hub.docker.com/_/node
-    # JSON REST API hosted on express or similar
+    build: "services/api"
 
   secrets:
     image: "vault:latest" # https://hub.docker.com/_/vault
