@@ -5,19 +5,20 @@ version: "3.8"
 services:
 
   website:
-    # webserver
+    image: "node:latest" # https://hub.docker.com/_/node
+    # React app hosted on webpack dev server or similar
 
   api:
-    # API
+    image: "node:latest" # https://hub.docker.com/_/node
+    # JSON REST API hosted on express or similar
 
   tests:
-    # cypress
-    # XXX: don't run tests until all services are up
+    image: "node:latest" # https://hub.docker.com/_/node
+    # Cypress tests live here
 
   mocks:
-    # mountebank
-    # website and api will be configured to send requests here
-    # TODO: how should we persiste and maintain the mountebank imposters?
+    image: "bbyars/mountebank:latest" #https://hub.docker.com/r/bbyars/mountebank
+    # Moutebank service imposters
 
 networks:
   default:

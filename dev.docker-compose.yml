@@ -1,26 +1,24 @@
 verision: "3.8"
 
-# Local development stack
+# Example local development stack
 
 services:
 
   website:
-    # usually a webserver hosting a React applicaton
+    image: "node:latest" # https://hub.docker.com/_/node
+    # React app hosted on webpack dev server or similar
 
   api:
-    # usually a JSON REST API
+    image: "node:latest" # https://hub.docker.com/_/node
+    # JSON REST API hosted on express or similar
 
   secrets:
-    # local Vault instance with dev-safe creds for ALL other services
+    image: "vault:latest" # https://hub.docker.com/_/vault
+    cap_add:
+      - "IPC_LOCK" # see docs
 
   database:
-    # we like postgres
-    # seed script > db dump > docker volume (please don't rely on volumes)
+    image: "postgres:latest" # https://hub.docker.com/_/postgres
 
   cache:
-    # we often use redis
-
-  logging:
-    # XXX: this would ideally be handled by the service orchestrator
-
-  # 3rd party services need not be listed here, but most be correctly configured for development
+    image: "redis:latest" # https://hub.docker.com/_/redis
