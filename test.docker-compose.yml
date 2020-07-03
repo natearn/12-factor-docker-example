@@ -10,8 +10,10 @@ services:
   api:
     build: "services/api"
 
-  tests:
-    build: "services/tests"
+  cypress:
+    image: "cypress/included:latest" # https://hub.docker.com/r/cypress/included/
+    # https://github.com/cypress-io/cypress-docker-images
+    # https://www.cypress.io/blog/2019/05/02/run-cypress-with-a-single-docker-command/
 
   mocks:
     image: "bbyars/mountebank:latest" #https://hub.docker.com/r/bbyars/mountebank
