@@ -1,1 +1,8 @@
 This is a WIP service configuration for web apps
+
+## general advice:
+1. match dev image versions to prod
+2. seed dev service data on startup, avoid volumes
+3. avoid volumes, they are non-deterministic
+4. use service names as hostnames in your dev config
+5. foward ports only when necessary
