@@ -1,0 +1,26 @@
+verision: "3.8"
+
+# Local development stack
+
+services:
+
+  website:
+    # usually a webserver hosting a React applicaton
+
+  api:
+    # usually a JSON REST API
+
+  secrets:
+    # local Vault instance with dev-safe creds for ALL other services
+
+  database:
+    # we like postgres
+    # seed script > db dump > docker volume (please don't rely on volumes)
+
+  cache:
+    # we often use redis
+
+  logging:
+    # XXX: this would ideally be handled by the service orchestrator
+
+  # 3rd party services need not be listed here, but most be correctly configured for development

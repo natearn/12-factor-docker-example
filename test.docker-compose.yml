@@ -1,0 +1,24 @@
+version: "3.8"
+
+# Automated testing stack
+
+services:
+
+  website:
+    # webserver
+
+  api:
+    # API
+
+  tests:
+    # cypress
+    # XXX: don't run tests until all services are up
+
+  mocks:
+    # mountebank
+    # website and api will be configured to send requests here
+    # TODO: how should we persiste and maintain the mountebank imposters?
+
+networks:
+  default:
+    internal: true # no internet
