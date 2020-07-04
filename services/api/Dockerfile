@@ -1,4 +1,7 @@
 # https://hub.docker.com/_/node
 FROM node:latest
 
-# Probably a JSON REST API
+COPY . /api
+WORKDIR /api
+RUN yarn install
+CMD yarn start
