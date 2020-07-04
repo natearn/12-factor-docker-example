@@ -4,6 +4,7 @@
   "main": "server.js",
   "author": "Nathan Arnold (natearn@natearn.info)",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
