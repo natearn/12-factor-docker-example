@@ -17,6 +17,3 @@ services:
 
   database:
     image: "postgres:latest" # https://hub.docker.com/_/postgres
-
-  cache:
-    image: "redis:latest" # https://hub.docker.com/_/redis
