@@ -1,0 +1,3 @@
+[submodule "services/website/SnapShot"]
+	path = services/website/SnapShot
+	url = https://github.com/Yog9/SnapShot
