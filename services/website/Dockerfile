@@ -1,4 +1,7 @@
 # https://hub.docker.com/_/node
 FROM node:latest
 
-# Probably a React app
+COPY ./SnapShot /SnapShot
+WORKDIR /SnapShot
+RUN yarn install
+CMD yarn start
