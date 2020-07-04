@@ -9,6 +9,8 @@ services:
     ports:
       - "3000:3000" # expose webserver to host machine
     tty: true # create-react-app dev server terminal magic
+    volumes:
+      - "./services/website/SnapShot/src:/SnapShot/src"
 
   api:
     build: "services/api"
