@@ -17,7 +17,7 @@ app.get('/categories', (req, res) => {
     'food',
     'mountain',
   ];
-  return res.status(200).json(categories);
+  return res.status(200).json({ categories });
 });
 
 app.listen(port, () => console.log(`SnapShot API listening on port ${port}!`));
