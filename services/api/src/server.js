@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.get('/categories', (req, res) => {
   const categories = [
     'beaches',
-    'birds'
+    'birds',
     'food',
     'mountain',
   ];
