@@ -11,9 +11,13 @@ services:
     tty: true # create-react-app dev server terminal magic
     volumes:
       - "./services/website/SnapShot/src:/SnapShot/src"
+    environment:
+      REACT_APP_API_URL: 'api:4000'
 
   api:
     build: "services/api"
+    ports:
+      - "4000:4000"
 
   secrets:
     image: "vault:latest" # https://hub.docker.com/_/vault
