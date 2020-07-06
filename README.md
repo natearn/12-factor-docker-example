@@ -1,22 +1,27 @@
-This is a WIP service configuration for web apps
+## This template is designed to follow the [Twelve-Factor App](https://12factor.net/) guidelines.
+1. One codebase is used for all deployments.
+2. By using docker images, dependencies are explicit and isolated.
+3. Config is delivered through environment variables; secrets are not.
+4. All communication between services is done over the network.
+5. Docker images are the configurable builds; all releases use the same image.
+6. Containers should be stateless and not share information directly (no shared volumes).
+7. Service images are fully self-contained applications.
+8. Container orchestration (ex. Kubernetes) can be used to handle application scaling.
+9. Images should be light-weight and fault-tolerant. Requests may fail; containers may be terminated unexpectedly.
+10. The development and production deployments should be separate configurations of the same base image.
+11. Services should not be concerned with the overall logging solution, but should log consistently.
+12. Services should not be concerned with administrative tasks; keep them separate.
 
-## This is designed to be a [Twelve-Factor App](https://12factor.net/)
-1. Every deployment of this application can be mapped back to a single commit. All services must be deployed together.
-2. Dependencies are explicit by using absolute versions, and isolated by using Docker images.
-3. All environment-specific config is delivered to containers via env vars. Credentials are obtained via a secrets service.
-4. All communication between services is done over the network, and is secured.
-5. Docker images serve as the builds, and should be tagged with a commit hash. Releases require a service orchestrator to provide configs.
-6. Services (processes) run in ephemeral Docker containers. All data persistence must be done using
-7. TODO: All interactions with this application are done through a port binding (using some network protocol).
-8. Container orchestration (probably Kubernetes) will handle concurrency, and adhere's very closely to the Unix process model.
-9. TODO: Containers should be lightweight and services should be prepared for requests to fail.
-10. TODO: Using docker images, the only differences between deployments should be the config.
-11. Logs are not managed by the application, but by the container orchestrator.
-12. Adminitrative tasks are run manually-executed scripts.
+### Configuration and Secrets
+- Configuration is anything that is expected to vary between deployments (ex. backing service addresses).
+- Configuration **should not** alter the behaviour of the application (ex. feature flags). As a rule, the application should never be conditional upon the environment that it is run in.
+- Secrets are technically configuration, but require a more secure mechanism than environment variables.
 
+### Development
+- Use absolute image versions and ensure they are captured in the "release" such that they can be audited.
+- Prefer seed scripts over persistent data volumes. Seed scripts are repeatable and easier to share.
 
-## Advice for Developers:
-- Use absolute image versions and ensure they are captured in the "release".
-- Prefer seed scripts over persistent volumes.
-- Use service names as hostnames in your dev config.
-- Expose services to the host (port binding) **only** when necessary.
+### Testing
+- TDD using end-to-end tests is encouraged.
+
+### Deployment
