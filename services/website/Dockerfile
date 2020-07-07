@@ -7,5 +7,4 @@ WORKDIR /website
 COPY ./SnapShot/package.json ./SnapShot/yarn.lock ./
 RUN yarn install
 COPY ./SnapShot .
-RUN yarn build
-CMD serve -s -n ./build
+CMD yarn build && serve -s -n ./build
