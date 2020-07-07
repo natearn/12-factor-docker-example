@@ -2,8 +2,10 @@
 FROM node:latest
 
 RUN yarn global add serve
-COPY ./SnapShot /SnapShot
-WORKDIR /SnapShot
+RUN mkdir -p /website
+WORKDIR /website
+COPY ./SnapShot/package.json ./SnapShot/yarn.lock ./
 RUN yarn install
+COPY ./SnapShot .
 RUN yarn build
 CMD serve -s -n ./build
