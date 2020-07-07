@@ -7,11 +7,13 @@ services:
   website:
     build: "services/website"
     ports:
-      - "3000:5000" # expose webserver to host machine
+      - "3000:3000" # expose webserver to host machine
     volumes:
-      - "./services/website/SnapShot/src:/SnapShot/src"
+      - "./services/website/SnapShot/src:/home/node/app/src" # this needs to match the Dockerfile
     environment:
       REACT_APP_API_URL: 'http://localhost:4000' # what the browser uses
+    stdin_open: true
+    command: yarn start
 
   api:
     build: "services/api"
